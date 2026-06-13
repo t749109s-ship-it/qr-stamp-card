@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Heritage English Passport</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IM+Fell+English:ital@0;1&family=Special+Elite&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5eed8;
+    --bg2: #ede4c8;
+    --navy: #1a2c5b;
+    --navy-light: #2a3f7e;
+    --gold: #c8a84b;
+    --gold-light: #e8cc7a;
+    --red: #d63031;
+    --ink: #2d2416;
+    --ink-light: #5c4a2a;
+    --border: #b8a870;
+    --stamp-japan: #e84393;
+    --stamp-asia: #e67e22;
+    --stamp-europe: #27ae60;
+    --stamp-africa: #16a085;
+    --stamp-namerica: #2980b9;
+    --stamp-samerica: #8e44ad;
+    --stamp-oceania: #1abc9c;
+    --stamp-ancient: #7f8c8d;
+    --stamp-nature: #27ae60;
+    --stamp-world: #c8a84b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #d4c9a0;
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(180,160,100,0.15) 39px, rgba(180,160,100,0.15) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(180,160,100,0.15) 39px, rgba(180,160,100,0.15) 40px);
+  }
+
+  .passport-container {
+    background: var(--bg);
+    max-width: 1200px;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.35), inset 0 0 0 3px var(--gold), inset 0 0 0 6px var(--bg2), inset 0 0 0 8px var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Airmail diagonal border */
+  .passport-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 12px solid transparent;
+    border-image: repeating-linear-gradient(
+      45deg,
+      #c0392b 0px, #c0392b 10px,
+      #fff 10px, #fff 20px,
+      #1a2c5b 20px, #1a2c5b 30px,
+      #fff 30px, #fff 40px
+    ) 12;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* ───── HEADER ───── */
+  .passport-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    padding: 18px 24px 14px;
+    display: grid;
+    grid-template-columns: 200px 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    position: relative;
+  }
+
+  .passport-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0px, var(--gold) 8px, transparent 8px, transparent 16px);
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .passport-book-icon {
+    width: 52px;
+    height: 64px;
+    background: linear-gradient(160deg, #1a3a8f, #0d1f5c);
+    border-radius: 4px 8px 8px 4px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4), inset -2px 0 0 rgba(255,255,255,0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+
+  .passport-book-icon::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, #8b7030, #c8a84b, #8b7030);
+    border-radius: 4px 0 0 4px;
+  }
+
+  .globe-icon {
+    font-size: 22px;
+  }
+
+  .passport-book-text {
+    font-family: 'Special Elite', serif;
+    font-size: 7px;
+    color: var(--gold);
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+
+  .header-title-block { text-align: center; }
+
+  .header-eyebrow {
+    font-family: 'Special Elite', serif;
+    font-size: 9px;
+    color: var(--gold-light);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+  }
+
+  .header-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--gold-light);
+    margin-top: 3px;
+  }
+
+  .postmark-stamp {
+    width: 72px;
+    height: 72px;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .postmark-stamp::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed var(--gold-light);
+    border-radius: 50%;
+  }
+
+  .postmark-text {
+    font-family: 'Special Elite', serif;
+    font-size: 7px;
+    color: var(--gold);
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    z-index: 1;
+  }
+
+  /* ───── STUDENT + STATS BAR ───── */
+  .stats-bar {
+    background: var(--bg2);
+    border-bottom: 2px solid var(--border);
+    padding: 10px 24px;
+    display: grid;
+    grid-template-columns: 200px 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .student-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-family: 'Special Elite', serif;
+    font-size: 14px;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .student-selector select {
+    appearance: none;
+    background: transparent;
+    border: none;
+    font-family: 'Special Elite', serif;
+    font-size: 14px;
+    color: var(--ink);
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+  }
+
+  .student-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .progress-block { }
+
+  .progress-label {
+    font-family: 'Special Elite', serif;
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .progress-count-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .progress-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .progress-denom {
+    font-family: 'Special Elite', serif;
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+
+  .progress-bar-track {
+    height: 14px;
+    background: #d8cfa8;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    width: 260px;
+    position: relative;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), var(--navy-light));
+    border-radius: 7px;
+    transition: width 0.5s ease;
+    position: relative;
+  }
+
+  .progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 6px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 0 7px 7px 0;
+  }
+
+  .progress-pct {
+    font-family: 'Special Elite', serif;
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-left: 6px;
+  }
+
+  .rank-block {
+    background: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    min-width: 130px;
+  }
+
+  .rank-eyebrow {
+    font-family: 'Special Elite', serif;
+    font-size: 9px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .rank-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  .next-block {
+    background: linear-gradient(135deg, #fff8e7, #fff3d0);
+    border: 2px solid var(--gold-light);
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-align: center;
+    min-width: 140px;
+  }
+
+  .next-eyebrow {
+    font-family: 'Special Elite', serif;
+    font-size: 9px;
+    color: var(--red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .next-stamps {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ───── MAIN BODY ───── */
+  .passport-body {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 0;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  /* ───── STAMP GRID ───── */
+  .stamp-grid-section {}
+
+  .category-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+
+  .category-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #fff, var(--bg2));
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    min-height: 58px;
+  }
+
+  .category-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 900;
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+  }
+
+  .category-img {
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .category-name {
+    font-family: 'Special Elite', serif;
+    font-size: 11px;
+    line-height: 1.3;
+    color: var(--ink);
+    font-weight: bold;
+  }
+
+  .stamp-slots {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+  }
+
+  .stamp-slot {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px dashed #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Special Elite', serif;
+    font-size: 10px;
+    color: #bbb;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    background: rgba(255,255,255,0.5);
+    user-select: none;
+  }
+
+  .stamp-slot:hover {
+    border-color: #999;
+    background: rgba(255,255,255,0.8);
+    transform: scale(1.08);
+  }
+
+  .stamp-slot.stamped {
+    border-style: solid;
+    border-width: 2.5px;
+    color: #fff;
+    font-size: 9px;
+    font-weight: bold;
+    background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.25), transparent 60%);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2), inset 0 0 0 3px rgba(255,255,255,0.15);
+    transform: rotate(var(--rot, -2deg));
+    animation: stampIn 0.2s ease;
+  }
+
+  @keyframes stampIn {
+    0% { transform: scale(1.4) rotate(var(--rot, -2deg)); opacity: 0.5; }
+    100% { transform: scale(1) rotate(var(--rot, -2deg)); opacity: 1; }
+  }
+
+  .stamp-slot.stamped::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+  }
+
+  /* Category colors */
+  .cat-japan .stamp-slot.stamped   { background-color: var(--stamp-japan);    border-color: #c0276d; }
+  .cat-asia .stamp-slot.stamped    { background-color: var(--stamp-asia);     border-color: #b86218; }
+  .cat-europe .stamp-slot.stamped  { background-color: var(--stamp-europe);   border-color: #1e8449; }
+  .cat-africa .stamp-slot.stamped  { background-color: var(--stamp-africa);   border-color: #0e6655; }
+  .cat-namerica .stamp-slot.stamped { background-color: var(--stamp-namerica); border-color: #1c598a; }
+  .cat-samerica .stamp-slot.stamped { background-color: var(--stamp-samerica); border-color: #6c3483; }
+  .cat-oceania .stamp-slot.stamped { background-color: var(--stamp-oceania);  border-color: #148f77; }
+  .cat-ancient .stamp-slot.stamped { background-color: var(--stamp-ancient);  border-color: #626567; }
+  .cat-nature .stamp-slot.stamped  { background-color: var(--stamp-nature);   border-color: #1e8449; }
+  .cat-world .stamp-slot.stamped   { background-color: var(--stamp-world);    border-color: #9a7d2e; }
+
+  /* category number colors */
+  .cat-japan .category-number   { color: var(--stamp-japan); }
+  .cat-asia .category-number    { color: var(--stamp-asia); }
+  .cat-europe .category-number  { color: var(--stamp-europe); }
+  .cat-africa .category-number  { color: var(--stamp-africa); }
+  .cat-namerica .category-number { color: var(--stamp-namerica); }
+  .cat-samerica .category-number { color: var(--stamp-samerica); }
+  .cat-oceania .category-number { color: var(--stamp-oceania); }
+  .cat-ancient .category-number { color: var(--stamp-ancient); }
+  .cat-nature .category-number  { color: var(--stamp-nature); }
+  .cat-world .category-number   { color: var(--stamp-world); }
+
+  /* ───── BADGES PANEL ───── */
+  .badges-panel {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 2px solid var(--gold);
+  }
+
+  .badges-title {
+    font-family: 'Special Elite', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    border-bottom: 1px solid rgba(200,168,75,0.4);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+  }
+
+  .badge-item.earned {
+    opacity: 1;
+    transform: translateX(2px);
+  }
+
+  .badge-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    border: 2px solid rgba(255,255,255,0.2);
+    position: relative;
+  }
+
+  .badge-item.earned .badge-icon {
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: 0 0 10px currentColor;
+  }
+
+  .badge-info {
+    flex: 1;
+  }
+
+  .badge-threshold {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .badge-name {
+    font-family: 'Special Elite', serif;
+    font-size: 9px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+  }
+
+  /* ───── FOOTER ───── */
+  .passport-footer {
+    background: var(--navy);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-landmarks {
+    font-size: 20px;
+    letter-spacing: 4px;
+    opacity: 0.6;
+  }
+
+  .footer-mission {
+    background: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-mission-text {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .mission-badge {
+    background: var(--red);
+    color: #fff;
+    font-family: 'Special Elite', serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 3px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    display: none;
+  }
+
+  .mission-badge.visible { display: block; }
+
+  /* Admin controls */
+  .admin-bar {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .admin-label {
+    font-family: 'Special Elite', serif;
+    font-size: 10px;
+    color: var(--ink-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .admin-btn {
+    font-family: 'Special Elite', serif;
+    font-size: 11px;
+    padding: 4px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .admin-btn:hover { background: var(--gold-light); }
+  .admin-btn.danger { border-color: var(--red); color: var(--red); }
+  .admin-btn.danger:hover { background: #fee; }
+
+  .student-mgr-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .student-mgr-modal.open { display: flex; }
+
+  .modal-box {
+    background: var(--bg);
+    border: 3px solid var(--gold);
+    border-radius: 10px;
+    padding: 24px;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+  }
+
+  .modal-input {
+    width: 100%;
+    font-family: 'Special Elite', serif;
+    font-size: 13px;
+    padding: 8px 10px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    background: #fff;
+    color: var(--ink);
+    margin-bottom: 10px;
+    outline: none;
+  }
+
+  .modal-input:focus { border-color: var(--navy); }
+
+  .student-list { list-style: none; margin-bottom: 16px; }
+
+  .student-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 10px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid var(--border);
+    font-family: 'Special Elite', serif;
+    font-size: 13px;
+  }
+
+  .student-list li.active { background: var(--gold-light); }
+
+  .del-btn {
+    background: none;
+    border: none;
+    color: var(--red);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0 4px;
+    line-height: 1;
+  }
+
+  .modal-btn-row { display: flex; gap: 8px; justify-content: flex-end; }
+
+
+  /* ───── QR AUTH STYLE ADDITIONS ───── */
+  .qr-auth-card {
+    background: #fff;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 8px;
+    align-items: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.18);
+    min-width: 170px;
+  }
+  .mini-qr, .big-qr {
+    background-color: #fff;
+    background-image:
+      linear-gradient(90deg,#111 10px,transparent 10px),
+      linear-gradient(#111 10px,transparent 10px),
+      linear-gradient(90deg,transparent 4px,#111 4px,#111 7px,transparent 7px),
+      linear-gradient(transparent 4px,#111 4px,#111 7px,transparent 7px),
+      radial-gradient(circle at 16% 16%, #111 0 10px, transparent 11px),
+      radial-gradient(circle at 84% 16%, #111 0 10px, transparent 11px),
+      radial-gradient(circle at 16% 84%, #111 0 10px, transparent 11px);
+    background-size: 22px 22px,22px 22px,13px 13px,13px 13px,100% 100%,100% 100%,100% 100%;
+    border: 5px solid #fff;
+    outline: 2px solid var(--navy);
+  }
+  .mini-qr { width: 52px; height: 52px; border-radius: 4px; }
+  .big-qr { width: 178px; height: 178px; border-radius: 8px; margin: 12px auto; }
+  .qr-label {
+    font-family: 'Special Elite', serif;
+    color: var(--navy);
+    font-size: 10px;
+    line-height: 1.35;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+  }
+  .qr-label strong { font-family:'Playfair Display', serif; font-size:15px; display:block; }
+  .auth-status {
+    font-family:'Special Elite',serif;
+    font-size:11px;
+    padding: 4px 9px;
+    border-radius:999px;
+    background:#fff3d0;
+    border:1.5px solid var(--gold);
+    color:var(--ink);
+  }
+  .auth-status.ok { background:#e9fff2; border-color:#27ae60; color:#17653a; }
+  .locked-note { font-family:'Special Elite',serif; font-size:11px; color:var(--red); }
+  .admin-bar.locked .stamp-admin-btn { opacity:.45; pointer-events:none; filter:grayscale(1); }
+  .qr-modal {
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,.62); z-index:1100;
+    align-items:center; justify-content:center;
+  }
+  .qr-modal.open { display:flex; }
+  .qr-box {
+    background:var(--bg); border:3px solid var(--gold); border-radius:14px; padding:22px;
+    width:380px; max-width:92vw; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,.45);
+  }
+  .qr-box h2 { font-family:'Playfair Display',serif; color:var(--navy); margin-bottom:6px; }
+  .qr-box p { font-family:'Special Elite',serif; font-size:12px; color:var(--ink-light); line-height:1.6; }
+  .qr-code-input { width:100%; text-align:center; font-family:'Special Elite',serif; font-size:18px; letter-spacing:4px; padding:10px; border:2px solid var(--border); border-radius:8px; margin:10px 0; }
+  .scan-line { height:3px; width:178px; background:var(--red); margin:-102px auto 98px; box-shadow:0 0 12px var(--red); animation:scan 1.8s ease-in-out infinite alternate; }
+  @keyframes scan { from { transform:translateY(-70px); } to { transform:translateY(70px); } }
+  /* Immigration-entry-stamp design: compact square passport stamp */
+  .stamp-slot.stamped {
+    border-radius: 12px;
+    border: 2px solid var(--stamp-accent, currentColor);
+    color: var(--stamp-accent, currentColor);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255,255,255,.58), transparent 18px),
+      linear-gradient(145deg, rgba(255,232,241,.95), rgba(255,248,231,.88));
+    box-shadow:
+      0 2px 5px rgba(35,30,20,.13),
+      inset 0 0 0 1px rgba(255,255,255,.65);
+    transform: rotate(var(--rot, -2deg));
+    overflow: visible;
+    padding: 2px;
+  }
+  .stamp-slot.stamped::after,
+  .stamp-slot.stamped::before { display:none; }
+
+  .entry-stamp {
+    position:relative;
+    z-index:1;
+    width:100%;
+    height:100%;
+    border:1.8px solid currentColor;
+    border-radius:9px;
+    display:grid;
+    grid-template-rows: 1fr auto auto auto 1fr;
+    align-items:center;
+    justify-items:center;
+    font-family:'Special Elite', serif;
+    color:currentColor;
+    background:
+      repeating-linear-gradient(-8deg, transparent 0 9px, rgba(255,255,255,.18) 9px 11px),
+      rgba(255,255,255,.10);
+    opacity:.94;
+    line-height:1;
+  }
+  .entry-stamp::before {
+    content:'';
+    position:absolute;
+    inset:4px;
+    border:1px dashed currentColor;
+    border-radius:6px;
+    opacity:.48;
+    pointer-events:none;
+  }
+  .entry-stamp .entry-top {
+    grid-row:2;
+    font-size:5.5px;
+    letter-spacing:.45px;
+    text-transform:uppercase;
+    max-width:88%;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:clip;
+    transform:translateY(1px);
+  }
+  .entry-stamp .entry-main {
+    grid-row:3;
+    font-family:'Playfair Display', serif;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.7px;
+    line-height:1;
+    margin:2px 0 1px;
+    transform:skew(-4deg);
+  }
+  .entry-stamp .entry-bottom {
+    grid-row:4;
+    font-size:5.5px;
+    letter-spacing:.55px;
+    text-transform:uppercase;
+    opacity:.88;
+  }
+  .entry-stamp .entry-no {
+    position:absolute;
+    right:-6px;
+    bottom:-6px;
+    background:var(--bg);
+    border:1.5px solid currentColor;
+    border-radius:999px;
+    width:17px;
+    height:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:8px;
+    font-weight:700;
+    box-shadow:0 1px 2px rgba(0,0,0,.14);
+  }
+  .entry-stamp .entry-approved {
+    position:absolute;
+    left:5px;
+    top:4px;
+    font-size:4.8px;
+    letter-spacing:.35px;
+    text-transform:uppercase;
+    opacity:.78;
+    transform:rotate(-2deg);
+  }
+
+</style>
+</head>
+<body>
+
+<div class="passport-container" id="app">
+
+  <!-- HEADER -->
+  <div class="passport-header">
+    <div class="header-brand">
+      <div class="passport-book-icon">
+        <span class="globe-icon">🌍</span>
+        <div class="passport-book-text">WORLD<br>HERITAGE<br>ENGLISH<br>PASSPORT</div>
+      </div>
+    </div>
+    <div class="header-title-block">
+      <div class="header-eyebrow">✈ Explore · Discover · Collect</div>
+      <div class="header-title">QR HERITAGE ENGLISH PASSPORT</div>
+      <div class="header-subtitle">Scan, Explore, and Collect English Stamps!</div>
+    </div>
+    <div></div>
+    <div class="qr-auth-card" onclick="openQRAuth()" title="QR authentication">
+      <div class="mini-qr"></div>
+      <div class="qr-label"><strong>QR PASS</strong>Scan to<br>approve stamps</div>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="student-selector" onclick="openLoginModal()" title="名前でログイン" style="cursor:pointer;">
+      <span class="student-icon">🌐</span>
+      <span id="currentStudentLabel" style="font-family:'Special Elite',serif;font-size:14px;color:var(--ink);">— ログインしてください —</span>
+      <span style="margin-left:4px;color:var(--ink-light);">▼</span>
+    </div>
+
+    <div class="progress-block">
+      <div class="progress-label">Progress <span id="progressCount" style="font-size:16px;color:var(--navy);font-family:'Playfair Display',serif;font-weight:900;">0</span> / 100 stamps</div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
+        </div>
+        <span class="progress-pct" id="progressPct">0%</span>
+      </div>
+    </div>
+
+    <div class="rank-block">
+      <div class="rank-eyebrow">🏆 Current Rank</div>
+      <div class="rank-name" id="currentRank">—</div>
+    </div>
+
+    <div class="next-block">
+      <div class="next-eyebrow">📍 Next Destination</div>
+      <div class="next-stamps" id="nextDest">—</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="passport-body">
+    <div class="stamp-grid-section" id="stampGrid"></div>
+
+    <!-- BADGES -->
+    <div class="badges-panel">
+      <div class="badges-title">Achievement Badges</div>
+      <div id="badgesList"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="passport-footer">
+    <div class="footer-landmarks">🗼 🏛 🗽 🕌 🏔 🌋 🎑 🏯</div>
+    <div class="footer-mission">
+      <div class="footer-mission-text">Let's collect 100 stamps<br>and become a <strong>World Heritage Master!</strong></div>
+      <div class="mission-badge" id="missionBadge">MISSION COMPLETE!</div>
+    </div>
+  </div>
+
+  <!-- ADMIN BAR -->
+  <div class="admin-bar locked" id="adminBar">
+    <span class="admin-label">🔐 QR Stamp Approval:</span>
+    <span class="auth-status" id="authStatus">LOCKED</span>
+    <button class="admin-btn" onclick="openQRAuth()">Scan QR / Stamp</button>
+    <button class="admin-btn" onclick="openAdminModal()">Manage Students</button>
+    <button class="admin-btn stamp-admin-btn" onclick="giveNextStamp()">＋ Give Next Cute Stamp</button>
+    <button class="admin-btn danger stamp-admin-btn" onclick="removeLastStamp()">－ Remove Last Stamp</button>
+    <button class="admin-btn danger stamp-admin-btn" onclick="resetCurrent()">Reset This Student</button>
+    <span class="locked-note" id="lockedNote">QR認証後、5秒間だけスタンプ操作できます</span>
+  </div>
+</div>
+
+
+<!-- QR AUTH MODAL -->
+<div class="qr-modal" id="qrModal">
+  <div class="qr-box">
+    <h2>Teacher QR Approval</h2>
+    <p>QRコードを読み取る、または認証コードを入力すると、<br><strong>自動的に次の入国印スタンプが押されます。</strong><br>その後<strong>5秒間だけ</strong>スタンプ操作ができます。</p>
+    <div class="big-qr"></div>
+    <div class="scan-line"></div>
+    <input class="qr-code-input" id="qrCodeInput" placeholder="" />
+    <div class="modal-btn-row" style="justify-content:center;">
+      <button class="admin-btn" onclick="authenticateQR()">Scan & Stamp</button>
+      <button class="admin-btn" onclick="closeQRAuth()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL (生徒が自分の名前を選ぶ) -->
+<div class="student-mgr-modal" id="loginModal">
+  <div class="modal-box">
+    <div class="modal-title">🌐 あなたの名前を選んでください</div>
+    <p style="font-family:'Special Elite',serif;font-size:12px;color:var(--ink-light);margin-bottom:12px;">自分の名前をタップするとパスポートが開きます。</p>
+    <ul class="student-list" id="loginStudentList"></ul>
+    <hr style="border:none;border-top:1px solid var(--border);margin:14px 0 10px;">
+    <p style="font-family:'Special Elite',serif;font-size:11px;color:var(--ink-light);margin-bottom:6px;">✏️ 初めての人は名前を登録してください</p>
+    <div style="display:flex;gap:8px;">
+      <input class="modal-input" type="text" id="loginNewName" placeholder="名前を入力…" style="margin-bottom:0;flex:1;" />
+      <button class="admin-btn" onclick="registerAndLogin()" style="white-space:nowrap;">登録してログイン</button>
+    </div>
+    <div class="modal-btn-row" style="margin-top:10px;">
+      <button class="admin-btn" onclick="closeLoginModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN MODAL (先生専用: 生徒追加・削除) -->
+<div class="student-mgr-modal" id="adminModal">
+  <div class="modal-box">
+    <div class="modal-title">👩‍🎓 Student Manager (Admin)</div>
+    <ul class="student-list" id="adminStudentList"></ul>
+    <input class="modal-input" type="text" id="newStudentName" placeholder="New student name…" />
+    <div class="modal-btn-row">
+      <button class="admin-btn" onclick="addStudent()">Add Student</button>
+      <button class="admin-btn" onclick="closeAdminModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+
+const CATEGORIES = [
+  { id: 'japan',    num: 1,  name: 'Japan\nHeritage',         icon: '🗾',  cls: 'cat-japan' },
+  { id: 'asia',     num: 2,  name: 'Asia\nHeritage',          icon: '🕌',  cls: 'cat-asia' },
+  { id: 'europe',   num: 3,  name: 'Europe\nHeritage',        icon: '🏰',  cls: 'cat-europe' },
+  { id: 'africa',   num: 4,  name: 'Africa\nHeritage',        icon: '🌍',  cls: 'cat-africa' },
+  { id: 'namerica', num: 5,  name: 'North America\nHeritage', icon: '🗽',  cls: 'cat-namerica' },
+  { id: 'samerica', num: 6,  name: 'South America\nHeritage', icon: '🌿',  cls: 'cat-samerica' },
+  { id: 'oceania',  num: 7,  name: 'Oceania\nHeritage',       icon: '🐨',  cls: 'cat-oceania' },
+  { id: 'ancient',  num: 8,  name: 'Ancient\nWonders',        icon: '🗿',  cls: 'cat-ancient' },
+  { id: 'nature',   num: 9,  name: 'Nature\nHeritage',        icon: '🌲',  cls: 'cat-nature' },
+  { id: 'world',    num: 10, name: 'World Heritage\nMaster',  icon: '🌐',  cls: 'cat-world' },
+];
+
+const BADGES = [
+  { threshold: 10,  name: 'Japan Explorer',          icon: '🌸', color: '#e84393' },
+  { threshold: 20,  name: 'Asia Explorer',           icon: '🕌', color: '#e67e22' },
+  { threshold: 30,  name: 'Europe Explorer',         icon: '🏰', color: '#27ae60' },
+  { threshold: 40,  name: 'Africa Explorer',         icon: '🐘', color: '#16a085' },
+  { threshold: 50,  name: 'America Explorer',        icon: '🗽', color: '#2980b9' },
+  { threshold: 60,  name: 'Oceania Explorer',        icon: '🐨', color: '#1abc9c' },
+  { threshold: 70,  name: 'Heritage Adventurer',     icon: '🎒', color: '#8e44ad' },
+  { threshold: 80,  name: 'Heritage Expert',         icon: '🏛',  color: '#7f8c8d' },
+  { threshold: 90,  name: 'World Heritage\nAmbassador', icon: '🌿', color: '#27ae60' },
+  { threshold: 100, name: 'World Heritage\nMaster',  icon: '👑', color: '#c8a84b' },
+];
+
+const RANKS = [
+  { min: 0,   label: 'Beginner' },
+  { min: 10,  label: 'Japan\nExplorer' },
+  { min: 20,  label: 'Asia\nExplorer' },
+  { min: 30,  label: 'Europe\nExplorer' },
+  { min: 40,  label: 'Africa\nExplorer' },
+  { min: 50,  label: 'America\nExplorer' },
+  { min: 60,  label: 'Oceania\nExplorer' },
+  { min: 70,  label: 'Heritage\nAdventurer' },
+  { min: 80,  label: 'Heritage\nExpert' },
+  { min: 90,  label: 'World Heritage\nAmbassador' },
+  { min: 100, label: 'World Heritage\nMaster' },
+];
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+
+let state = JSON.parse(localStorage.getItem('whep_state') || 'null') || {
+  students: [{ name: '山田 太郎', stamps: 37 }],
+  currentIdx: 0
+};
+const APPROVAL_DURATION_MS = 5 * 1000;
+let approvalTimer = null;
+let teacherApproved = hasValidApproval();
+
+function normalizeStudentData() {
+  let changed = false;
+  const todayForMigration = formatEntryDate(new Date());
+  state.students.forEach(s => {
+    if (!Array.isArray(s.stampDates)) { s.stampDates = []; changed = true; }
+    if (!Array.isArray(s.usedQRs)) { s.usedQRs = []; changed = true; }
+    // 本物のスタンプカードのように、押印済みの番号には必ず「押した日付」を保存する。
+    // 既存データで日付が未保存だったスタンプだけ、初回表示日の押印日として固定する。
+    for (let i = 1; i <= (s.stamps || 0); i++) {
+      if (!s.stampDates[i]) {
+        s.stampDates[i] = todayForMigration;
+        changed = true;
+      }
+    }
+    // 削除済み・未押印部分の日付は残さない。
+    for (let i = (s.stamps || 0) + 1; i < s.stampDates.length; i++) {
+      if (s.stampDates[i]) { s.stampDates[i] = null; changed = true; }
+    }
+  });
+  return changed;
+}
+if (normalizeStudentData()) {
+  localStorage.setItem('whep_state', JSON.stringify(state));
+}
+
+// ─── GOOGLE SHEETS SYNC ──────────────────────────────────────────────────────
+// ★ ここにあなたのGoogle Apps Script WebアプリURLを貼り付けてください
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbxLXCwD2X3V_9SiiiNKm016bRi2HigRkjG3JuDyvkRZTNGnZswwXqLJLoKEGWhpwJ07Sg/exec';
+
+/**
+ * スプレッドシートに生徒データを送信する。
+ * A列: 名前 (A1, A2, A3 … 各行が1人の生徒)
+ * B列: スタンプ数
+ * action=update → 既存行を更新 / 新規なら追加
+ */
+async function syncToSheet(student) {
+  if (!GAS_URL || GAS_URL.includes('YOUR_SCRIPT_ID')) return; // URL未設定時はスキップ
+  try {
+    const payload = {
+      action: 'update',
+      name: student.name,
+      stamps: student.stamps
+    };
+    await fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors', // GASはCORSヘッダーを返さないため no-cors で送信
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (e) {
+    console.warn('Sheets sync failed:', e);
+  }
+}
+
+function save() {
+  normalizeStudentData();
+  localStorage.setItem('whep_state', JSON.stringify(state));
+  // ★ 現在の生徒データをスプレッドシートに同期
+  syncToSheet(currentStudent());
+}
+
+function currentStudent() {
+  return state.students[state.currentIdx];
+}
+
+// ─── BUILD UI ─────────────────────────────────────────────────────────────────
+
+function buildGrid() {
+  const grid = document.getElementById('stampGrid');
+  grid.innerHTML = '';
+  CATEGORIES.forEach((cat, ci) => {
+    const startNum = ci * 10 + 1;
+    const row = document.createElement('div');
+    row.className = `category-row ${cat.cls}`;
+    row.innerHTML = `
+      <div class="category-label">
+        <div class="category-number">${cat.num}</div>
+        <div class="category-img">${cat.icon}</div>
+        <div class="category-name">${cat.name.replace('\n', '<br>')}</div>
+      </div>
+      <div class="stamp-slots" id="slots-${ci}"></div>
+    `;
+    grid.appendChild(row);
+
+    const slots = row.querySelector(`#slots-${ci}`);
+    for (let i = 0; i < 10; i++) {
+      const num = startNum + i;
+      const slot = document.createElement('div');
+      slot.className = 'stamp-slot';
+      slot.dataset.num = num;
+      slot.innerHTML = num;
+      const rot = (Math.random() * 6 - 3).toFixed(1);
+      slot.style.setProperty('--rot', rot + 'deg');
+      slot.addEventListener('click', () => toggleStamp(num));
+      slots.appendChild(slot);
+    }
+  });
+}
+
+function buildBadges() {
+  const list = document.getElementById('badgesList');
+  list.innerHTML = '';
+  BADGES.forEach(b => {
+    const item = document.createElement('div');
+    item.className = 'badge-item';
+    item.id = `badge-${b.threshold}`;
+    item.innerHTML = `
+      <div class="badge-icon" style="background:${b.color}22; color:${b.color}; border-color:${b.color}44; font-size:18px;">${b.icon}</div>
+      <div class="badge-info">
+        <div class="badge-threshold">${b.threshold}</div>
+        <div class="badge-name">${b.name.replace('\n', '<br>')}</div>
+      </div>
+    `;
+    list.appendChild(item);
+  });
+}
+
+function buildStudentSelect() {
+  // ログインラベルを更新（ドロップダウン廃止）
+  const label = document.getElementById('currentStudentLabel');
+  if (label) {
+    const s = state.students[state.currentIdx];
+    label.textContent = s ? s.name : '— ログインしてください —';
+  }
+}
+
+// ─── UPDATE DISPLAY ─────────────────────────────────────────────────────────
+
+function updateDisplay() {
+  const student = currentStudent();
+  const count = student.stamps;
+
+  // Slots
+  document.querySelectorAll('.stamp-slot').forEach(slot => {
+    const n = parseInt(slot.dataset.num);
+    if (n <= count) {
+      slot.classList.add('stamped');
+      slot.innerHTML = entryStampHTML(n);
+    } else {
+      slot.classList.remove('stamped');
+      slot.textContent = n;
+    }
+  });
+
+  // Progress
+  document.getElementById('progressCount').textContent = count;
+  document.getElementById('progressBar').style.width = count + '%';
+  document.getElementById('progressPct').textContent = count + '%';
+
+  // Rank
+  let rank = RANKS[0];
+  for (const r of RANKS) {
+    if (count >= r.min) rank = r;
+  }
+  document.getElementById('currentRank').innerHTML = rank.label.replace('\n', '<br>');
+
+  // Next destination
+  const nextBadge = BADGES.find(b => b.threshold > count);
+  if (nextBadge) {
+    document.getElementById('nextDest').innerHTML = `${nextBadge.threshold} stamps<br><span style="font-size:11px;font-family:'Special Elite',serif;color:var(--ink-light);">${nextBadge.name.replace('\n', ' ')}</span>`;
+  } else {
+    document.getElementById('nextDest').innerHTML = `<span style="color:var(--gold);">Complete! 🎉</span>`;
+  }
+
+  // Badges
+  BADGES.forEach(b => {
+    const el = document.getElementById(`badge-${b.threshold}`);
+    if (el) {
+      if (count >= b.threshold) el.classList.add('earned');
+      else el.classList.remove('earned');
+    }
+  });
+
+  // Mission complete
+  const mb = document.getElementById('missionBadge');
+  if (count >= 100) mb.classList.add('visible');
+  else mb.classList.remove('visible');
+}
+
+
+function getApprovalUntil() {
+  return parseInt(sessionStorage.getItem('whep_qr_approval_until') || '0', 10) || 0;
+}
+function hasValidApproval() {
+  return Date.now() < getApprovalUntil();
+}
+function grantFiveSecondApproval() {
+  sessionStorage.setItem('whep_qr_approval_until', String(Date.now() + APPROVAL_DURATION_MS));
+  teacherApproved = true;
+  startApprovalTimer();
+}
+function lockStampControls() {
+  teacherApproved = false;
+  sessionStorage.removeItem('whep_qr_approval_until');
+  sessionStorage.removeItem('whep_qr_approved'); // old version compatibility
+}
+function remainingApprovalSeconds() {
+  return Math.max(0, Math.ceil((getApprovalUntil() - Date.now()) / 1000));
+}
+function startApprovalTimer() {
+  if (approvalTimer) clearInterval(approvalTimer);
+  approvalTimer = setInterval(updateAuthDisplay, 1000);
+}
+function updateAuthDisplay() {
+  const bar = document.getElementById('adminBar');
+  const st = document.getElementById('authStatus');
+  const note = document.getElementById('lockedNote');
+  if (!bar || !st) return;
+
+  teacherApproved = hasValidApproval();
+
+  if (teacherApproved) {
+    const remain = remainingApprovalSeconds();
+    bar.classList.remove('locked');
+    st.textContent = `APPROVED ${remain}s`;
+    st.classList.add('ok');
+    if (note) note.textContent = `認証済み：あと${remain}秒だけスタンプ操作できます`;
+  } else {
+    lockStampControls();
+    bar.classList.add('locked');
+    st.textContent = 'LOCKED';
+    st.classList.remove('ok');
+    if (note) note.textContent = 'LOCK：QR認証後、5秒間だけスタンプ操作できます';
+    if (approvalTimer) {
+      clearInterval(approvalTimer);
+      approvalTimer = null;
+    }
+  }
+}
+function openQRAuth() {
+  document.getElementById('qrModal').classList.add('open');
+  setTimeout(() => document.getElementById('qrCodeInput').focus(), 80);
+}
+function closeQRAuth() { document.getElementById('qrModal').classList.remove('open'); }
+function authenticateQR() {
+  const raw = document.getElementById('qrCodeInput').value.trim();
+  const result = approveAndAutoStamp(raw || 'WHEP');
+  if (result.ok) {
+    closeQRAuth();
+    updateAuthDisplay();
+    flashStampMessage(result.message);
+    document.getElementById('qrCodeInput').value = '';
+  } else {
+    alert(result.message);
+  }
+}
+function approveAndAutoStamp(rawCode) {
+  const code = extractQRCode(rawCode);
+  if (!isValidStampCode(code)) {
+    return { ok:false, message:'QR code is not valid. Demo code: WHEP' };
+  }
+  grantFiveSecondApproval();
+  const student = currentStudent();
+  normalizeStudentData();
+  // If a unique QR such as WHEP-LESSON-01 is used, prevent duplicate stamping for that student.
+  if (code !== 'WHEP' && student.usedQRs.includes(code)) {
+    return { ok:true, message:'このQRはすでに認証済みです。スタンプは追加されません。' };
+  }
+  if (student.stamps >= 100) return { ok:true, message:'100 stamps complete! 🎉' };
+  if (code !== 'WHEP') student.usedQRs.push(code);
+  student.stamps++;
+  student.stampDates[student.stamps] = formatEntryDate(new Date());
+  save();
+  updateDisplay();
+  return { ok:true, message:`QR認証完了：No.${student.stamps} の入国印を押しました。` };
+}
+function extractQRCode(raw) {
+  const text = String(raw || '').trim();
+  try {
+    const url = new URL(text);
+    return (url.searchParams.get('stamp') || url.searchParams.get('code') || url.hash.replace('#','') || text).trim().toUpperCase();
+  } catch(e) {
+    return text.trim().toUpperCase();
+  }
+}
+function isValidStampCode(code) {
+  return code === 'WHEP' || /^WHEP-[A-Z0-9-]+$/.test(code);
+}
+function flashStampMessage(message) {
+  const note = document.getElementById('lockedNote');
+  if (!note) return;
+  note.textContent = message;
+  setTimeout(updateAuthDisplay, 2400);
+}
+function checkQRCodeFromURL() {
+  const params = new URLSearchParams(location.search);
+  const fromURL = params.get('stamp') || params.get('code') || (location.hash ? location.hash.slice(1) : '');
+  if (!fromURL) return;
+  const result = approveAndAutoStamp(fromURL);
+  updateAuthDisplay();
+  setTimeout(() => flashStampMessage(result.message), 200);
+  // Remove the code from the address bar to avoid accidental repeated stamping on refresh.
+  if (history.replaceState) history.replaceState(null, '', location.pathname);
+}
+function needApproval() {
+  updateAuthDisplay();
+  if (!teacherApproved) { openQRAuth(); return true; }
+  return false;
+}
+const ENTRY_REGIONS = ['JPN','ASIA','EUR','AFR','NAM','SAM','OCE','ANC','NAT','WLD'];
+function formatEntryDate(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const mon = date.toLocaleString('en-US', { month:'short' }).toUpperCase();
+  const year = date.getFullYear();
+  return `${day} ${mon} ${year}`;
+}
+const ENTRY_PLACES = ['TOKYO JAPAN','BANGKOK THAILAND','ROMA ITALY','CAIRO EGYPT','NEW YORK USA','LIMA PERU','SYDNEY AUSTRALIA','ATHENS GREECE','VANCOUVER CANADA','PARIS FRANCE'];
+function entryStampHTML(n) {
+  const student = currentStudent();
+  const place = ENTRY_PLACES[Math.floor((n - 1) / 10)] || 'TOKYO JAPAN';
+  const dateText = (student.stampDates && student.stampDates[n]) || 'DATE SAVED';
+  const regionCode = ENTRY_REGIONS[Math.floor((n - 1) / 10)] || 'JPN';
+  return `<div class="entry-stamp" aria-label="Entry stamp ${n}">
+    <span class="entry-approved">APPROVED</span>
+    <span class="entry-top">${place}</span>
+    <span class="entry-main">${regionCode}</span>
+    <span class="entry-bottom">${dateText}</span>
+    <span class="entry-no">${n}</span>
+  </div>`;
+}
+
+// ─── INTERACTIONS ─────────────────────────────────────────────────────────────
+
+function toggleStamp(num) {
+  if (needApproval()) return;
+  const student = currentStudent();
+  normalizeStudentData();
+  // Only allow toggling at the boundary (sequential stamping)
+  if (num === student.stamps + 1) {
+    student.stamps = num;
+    student.stampDates[num] = formatEntryDate(new Date());
+  } else if (num === student.stamps) {
+    student.stampDates[num] = null;
+    student.stamps = num - 1;
+  }
+  save();
+  updateDisplay();
+}
+
+function giveNextStamp() {
+  if (needApproval()) return;
+  const student = currentStudent();
+  normalizeStudentData();
+  if (student.stamps < 100) {
+    student.stamps++;
+    student.stampDates[student.stamps] = formatEntryDate(new Date());
+    save();
+    updateDisplay();
+  }
+}
+
+function removeLastStamp() {
+  if (needApproval()) return;
+  const student = currentStudent();
+  normalizeStudentData();
+  if (student.stamps > 0) {
+    student.stampDates[student.stamps] = null;
+    student.stamps--;
+    save();
+    updateDisplay();
+  }
+}
+
+function resetCurrent() {
+  if (needApproval()) return;
+  if (!confirm(`Reset all stamps for ${currentStudent().name}?`)) return;
+  currentStudent().stamps = 0;
+  currentStudent().stampDates = [];
+  currentStudent().usedQRs = [];
+  save();
+  updateDisplay();
+}
+
+function switchStudent() {
+  state.currentIdx = parseInt(document.getElementById('studentSelect').value);
+  save();
+  updateDisplay();
+}
+
+// ─── MODAL ────────────────────────────────────────────────────────────────────
+
+// ─── ログインモーダル（生徒用：自分の名前を選ぶだけ）────────────────────────
+function openLoginModal() {
+  renderLoginList();
+  document.getElementById('loginModal').classList.add('open');
+}
+function closeLoginModal() {
+  document.getElementById('loginModal').classList.remove('open');
+}
+function renderLoginList() {
+  const ul = document.getElementById('loginStudentList');
+  ul.innerHTML = '';
+  state.students.forEach((s, i) => {
+    const li = document.createElement('li');
+    if (i === state.currentIdx) li.classList.add('active');
+    // 生徒用：スタンプ数は表示しない・削除ボタンもない
+    li.innerHTML = `<span onclick="loginAsStudent(${i})" style="cursor:pointer;flex:1;font-size:15px;">${s.name}</span>`;
+    ul.appendChild(li);
+  });
+}
+function loginAsStudent(i) {
+  state.currentIdx = i;
+  save();
+  buildStudentSelect();
+  updateDisplay();
+  closeLoginModal();
+}
+
+// ─── 管理者モーダル（先生用：生徒追加・削除・スタンプ数確認）─────────────
+function openAdminModal() {
+  renderAdminList();
+  document.getElementById('adminModal').classList.add('open');
+}
+function closeAdminModal() {
+  document.getElementById('adminModal').classList.remove('open');
+}
+function renderAdminList() {
+  const ul = document.getElementById('adminStudentList');
+  ul.innerHTML = '';
+  state.students.forEach((s, i) => {
+    const li = document.createElement('li');
+    if (i === state.currentIdx) li.classList.add('active');
+    li.innerHTML = `
+      <span onclick="selectStudentFromAdmin(${i})" style="cursor:pointer;flex:1;">${s.name} <small style="opacity:0.6;">(${s.stamps} stamps)</small></span>
+      <button class="del-btn" onclick="deleteStudent(${i})">✕</button>
+    `;
+    ul.appendChild(li);
+  });
+}
+function selectStudentFromAdmin(i) {
+  state.currentIdx = i;
+  save();
+  buildStudentSelect();
+  updateDisplay();
+  renderAdminList();
+}
+
+function registerAndLogin() {
+  const input = document.getElementById('loginNewName');
+  const name = input.value.trim();
+  if (!name) { input.focus(); return; }
+  // 同名チェック
+  const exists = state.students.findIndex(s => s.name === name);
+  if (exists >= 0) {
+    loginAsStudent(exists);
+    input.value = '';
+    return;
+  }
+  const newStudent = { name, stamps: 0, stampDates: [], usedQRs: [] };
+  state.students.push(newStudent);
+  state.currentIdx = state.students.length - 1;
+  localStorage.setItem('whep_state', JSON.stringify(state));
+  syncToSheet(newStudent);
+  buildStudentSelect();
+  updateDisplay();
+  input.value = '';
+  closeLoginModal();
+}
+
+// 旧コードとの互換性のため openModal / closeModal も残す
+function openModal() { openAdminModal(); }
+function closeModal() { closeAdminModal(); }
+function renderStudentList() { renderAdminList(); }
+function selectStudentFromModal(i) { selectStudentFromAdmin(i); }
+
+function addStudent() {
+  const input = document.getElementById('newStudentName');
+  const name = input.value.trim();
+  if (!name) return;
+  const newStudent = { name, stamps: 0, stampDates: [], usedQRs: [] };
+  state.students.push(newStudent);
+  state.currentIdx = state.students.length - 1;
+  localStorage.setItem('whep_state', JSON.stringify(state));
+  // ★ 新しい生徒をスプレッドシートに登録（スタンプ数0で追加）
+  syncToSheet(newStudent);
+  buildStudentSelect();
+  updateDisplay();
+  input.value = '';
+  renderStudentList();
+}
+
+function deleteStudent(i) {
+  if (state.students.length <= 1) { alert('At least one student is required.'); return; }
+  if (!confirm(`Delete ${state.students[i].name}?`)) return;
+  state.students.splice(i, 1);
+  if (state.currentIdx >= state.students.length) state.currentIdx = state.students.length - 1;
+  save();
+  buildStudentSelect();
+  updateDisplay();
+  renderStudentList();
+}
+
+document.getElementById('loginModal').addEventListener('click', function(e) {
+  if (e.target === this) closeLoginModal();
+});
+document.getElementById('adminModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAdminModal();
+});
+document.getElementById('qrModal').addEventListener('click', function(e) {
+  if (e.target === this) closeQRAuth();
+});
+document.getElementById('qrCodeInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') authenticateQR();
+});
+
+document.getElementById('loginNewName').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') registerAndLogin();
+});
+document.getElementById('newStudentName').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') addStudent();
+});
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+
+buildGrid();
+buildBadges();
+buildStudentSelect();
+updateDisplay();
+if (hasValidApproval()) startApprovalTimer();
+updateAuthDisplay();
+checkQRCodeFromURL();
+</script>
+</body>
+</html>
